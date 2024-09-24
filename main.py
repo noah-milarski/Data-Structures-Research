@@ -1,4 +1,5 @@
 from LinkedList.linked_list import LinkedList
+from DoublyLinkedList.doubly_linked_list import DoublyLinkedList
 
 if __name__ == '__main__':
     ll = LinkedList()
