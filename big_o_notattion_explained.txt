@@ -1,0 +1,129 @@
+What is Big O Notation?
+
+Big O notation is a mathematical representation that describes the upper bound of the time complexity or space complexity of an algorithm as a function of the input size (n). It provides a way to express how the performance of an algorithm scales with the size of the input data.
+Key Concepts:
+
+    - Best Case: The scenario where the algorithm performs the least number of operations.
+    - Average Case: The expected performance of an algorithm over all possible inputs.
+    - Worst Case: The scenario where the algorithm performs the most operations.
+
+Common Big O Notations:
+
+    O(1) - Constant Time
+        The runtime does not change regardless of the size of the input data.
+        Example: Accessing an element in an array by index.
+
+                def get_first_element(arr):
+                    return arr[0]  # O(1)
+
+
+O(log n) - Logarithmic Time
+    The runtime grows logarithmically as the input size increases. Often seen in algorithms that divide the problem in half each time.
+    Example: Binary search in a sorted array.
+
+                def binary_search(arr, target):
+                    left, right = 0, len(arr) - 1
+                    while left <= right:
+                        mid = (left + right) // 2
+                        if arr[mid] == target:
+                            return mid  # O(log n)
+                        elif arr[mid] < target:
+                            left = mid + 1
+                        else:
+                            right = mid - 1
+                    return -1
+
+
+O(n) - Linear Time
+    The runtime grows linearly with the size of the input data.
+    Example: Finding an item in an unsorted array.
+
+                def find_item(arr, target):
+                    for item in arr:  # O(n)
+                        if item == target:
+                            return item
+                    return None
+
+
+O(n log n) - Linearithmic Time
+    Common in efficient sorting algorithms. The runtime grows as n log n.
+    Example: Merge sort and quicksort (average case).
+
+                def merge_sort(arr):
+                    if len(arr) > 1:
+                        mid = len(arr) // 2
+                        left_half = arr[:mid]
+                        right_half = arr[mid:]
+                        merge_sort(left_half)  # O(log n)
+                        merge_sort(right_half)  # O(log n)
+                        merge(left_half, right_half)  # O(n)
+
+
+O(n²) - Quadratic Time
+    The runtime grows quadratically as the input size increases. Often occurs with nested iterations.
+    Example: Bubble sort or selection sort.
+
+                def bubble_sort(arr):
+                    n = len(arr)
+                    for i in range(n):  # O(n)
+                        for j in range(0, n - i - 1):  # O(n)
+                            if arr[j] > arr[j + 1]:
+                                arr[j], arr[j + 1] = arr[j + 1], arr[j]  # O(1)
+
+
+O(n³) - Cubic Time
+    The runtime grows cubically as the input size increases. Typically found in algorithms with three nested loops.
+    Example: Matrix multiplication.
+
+                def matrix_multiply(A, B):
+                    n = len(A)  # Assuming A and B are n x n matrices
+                    C = [[0] * n for _ in range(n)]
+                    for i in range(n):  # O(n)
+                        for j in range(n):  # O(n)
+                            for k in range(n):  # O(n)
+                                C[i][j] += A[i][k] * B[k][j]
+                    return C  # O(n³)
+
+
+O(2^n) - Exponential Time
+    The runtime doubles with each additional element in the input. Common in recursive algorithms that solve problems by breaking them down into smaller subproblems.
+    Example: Solving the Fibonacci sequence using naive recursion.
+
+                def fibonacci(n):
+                    if n <= 1:  # O(1)
+                        return n
+                    return fibonacci(n - 1) + fibonacci(n - 2)  # O(2^n)
+
+
+O(n!) - Factorial Time
+    The runtime grows factorially with the input size, typical in algorithms that generate all permutations of a set.
+    Example: Solving the traveling salesman problem using brute force.
+
+                from itertools import permutations
+
+                def traveling_salesman(cities):
+                    all_permutations = permutations(cities)  # O(n!)
+                    # Calculate distance for each permutation and find the shortest
+
+
+Summary Table:
+Complexity	|      Name	       |   Example Operation
+-----------------------------------------------------------------------
+O(1)	      Constant Time	       Accessing an array element
+O(log n)	  Logarithmic Time     Binary search
+O(n)	      Linear Time	       Finding an item in an unsorted array
+O(n log n)	  Linearithmic Time	   Merge sort
+O(n²)	      Quadratic Time	   Bubble sort
+O(n³)	      Cubic Time	       Matrix multiplication
+O(2^n)	      Exponential Time	   Fibonacci sequence (naive recursion)
+O(n!)	      Factorial Time	   Traveling salesman problem
+
+Importance of Big O Notation
+
+    - Performance Analysis: Helps in analyzing the efficiency of algorithms and understanding their scalability.
+    - Algorithm Comparison: Aids in comparing different algorithms to choose the best one for a given problem based on expected input size.
+    - Understanding Limits: Provides insights into potential performance issues and limitations when dealing with large datasets.
+
+Conclusion
+
+Understanding Big O notation is crucial for developers and computer scientists as it allows them to evaluate and optimize algorithms effectively, ensuring they can handle larger datasets efficiently.
