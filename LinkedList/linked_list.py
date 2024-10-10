@@ -8,6 +8,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None  # 'head' points to the first node in the list. Initially, the list is empty, so it's None.
+        self.tail = None  # 'tail' points to the last node in the list. Initially, the list is empty, so it's None.
 
         # Prints the linked list
     def print(self):
@@ -36,26 +37,29 @@ class LinkedList:
         node = Node(data, self.head)  # Create a new node with 'data', and its 'next' points to the current head.
         self.head = node  # Update the head to point to the new node, making it the first node in the list.
 
+        # If the list was empty, then head and tail are the same node.
+        if self.tail is None:
+            self.tail = self.head
+
     # Inserts a new node at the end of the linked list
-    # Time Complexity: O(n) - We need to traverse the entire list to find the last node.
+    # Time Complexity: O(1) - we reference the last node
     def insert_at_end(self, data):
         if self.head is None:  # If the list is empty, set the new node as the head.
             self.head = Node(data, None)  # The new node has 'data' and 'next' is None since it's the only node.
-            return  # Exit the function since we've inserted the node.
+            self.tail = self.head  # Set tail to the head since there's only one node.
+            return
 
-        itr = self.head  # Start from the head of the list.
-        while itr.next:  # Traverse through the list until reaching the last node (where 'next' is None).
-            itr = itr.next  # Move to the next node.
-
-        itr.next = Node(data, None)  # Insert the new node at the end by setting the last node's 'next' to the new node.
+            # Using the tail to insert at the end in O(1) time.
+        self.tail.next = Node(data, None)  # Insert the new node after the current tail.
+        self.tail = self.tail.next  # Update the tail to point to the new last node.
 
     # Inserts multiple values from a list into the linked list (each element at the end)
     # Time Complexity: O(kn) - Where k is the length of the data_list and n is the length of the linked list. Inserting each element is O(n), and it's repeated k times.
     def insert_values(self, data_list):
         self.head = None  # Reset the linked list (make it empty).
+        self.tail = None  # Reset the tail as well.
         for data in data_list:  # Iterate through each element in the data_list.
             self.insert_at_end(data)  # Insert each element at the end of the linked list.
-
 
     # Removes the node at a specific index (0-based index)
     # Time Complexity: O(n) - In the worst case, we may need to traverse the entire list to remove the node at index n-1.
