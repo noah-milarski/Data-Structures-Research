@@ -135,3 +135,14 @@ class LinkedList:
                 itr.next = itr.next.next  # Bypass the node with 'data'
                 break  # Exit after the node is removed
             itr = itr.next  # Move to the next node
+
+    # Converts the linked list to a Python list (array) and prints it
+    # Time Complexity: O(n) - We traverse the entire linked list to collect the values.
+    def linked_list_to_array(self):
+        itr = self.head  # Start from the head of the list.
+        lista = []  # Initialize an empty list to store the node values.
+        while itr:  # Loop through the linked list until itr becomes None (end of the list).
+            lista.append(itr.data)  # Append the data of the current node to the list.
+            itr = itr.next  # Move to the next node.
+        print(lista)  # Print the list that contains the linked list values.
+
