@@ -1,0 +1,24 @@
+You have to remember that Python has already a built-in hashmap, which we call dictionaries.
+
+- No Chaining:
+    Python doesn’t use linked lists for collisions like Java's HashMap.
+    Instead, it uses open addressing with quadratic probing to find the next available slot.
+
+- Faster Lookups in Many Cases:
+    Due to this design and internal optimizations (like sparse arrays and reduced memory overhead),
+    Python’s dictionary can be very memory efficient and fast.
+
+- Rehashing:
+    When the load factor (based on the number of filled slots) becomes too high,
+    Python resizes the hash table, redistributing keys across the new, larger table.
+
+In Python, the internal handling of hash collisions in dictionaries is not user-configurable,
+meaning that you cannot directly change the collision handling strategy like you can in some other programming languages
+(e.g., Java, where you can choose between separate chaining or use custom hash functions).
+
+- Current Collision Handling in Python:
+    Python’s dictionaries (dict) are implemented with open addressing and quadratic probing as the primary collision resolution strategy,
+    and this behavior is built into the Python interpreter itself. The collision resolution and probing mechanism are not exposed
+    as part of the public API of the dict object, so it's not possible to swap out quadratic probing for another strategy like linear probing,
+    double hashing, or separate chaining.
+
