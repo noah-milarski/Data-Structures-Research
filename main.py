@@ -1,4 +1,4 @@
-from Linear.Sequential.LinkedList.linked_list import LinkedList
+from DataStructures.Linear.Sequential.LinkedList.linked_list import LinkedList
 
 if __name__ == '__main__':
     ll = LinkedList()
