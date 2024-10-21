@@ -12,6 +12,8 @@ Welcome to the **Data Structures Research** project! This repository is designed
   - [Non-Linear Structures](#non-linear-structures)
     - [Hierarchical](#hierarchical)
     - [Unordered](#unordered)
+- [Searching Algorithms](#searching-algorithms)
+- [Sorting Algorithms](#sorting-algorithms)
 - [How to Use](#how-to-use)
 - [Contributing](#contributing)
 
@@ -50,7 +52,6 @@ graph TD;
     J --> P[Graph Directed];
     J --> Q[Graph Undirected];
 ```
-
 
 ### Linear Structures
 
@@ -98,6 +99,52 @@ graph TD;
      - `graph_directed.py`: Implements a directed graph using adjacency lists, with algorithms for BFS, DFS, and topological sort.
      - `graph_undirected.py`: Implements an undirected graph using adjacency lists, with BFS, DFS, and connected components detection.
 
+---
+# Searching Algorithms
+
+This section includes various searching algorithms.
+
+- **Binary Search**:
+  - `binary_search.py`: Implements binary search, a divide-and-conquer algorithm for sorted arrays.
+  
+- **Exponential Search**:
+  - `exponential_search.py`: Implements exponential search for faster searching in a sorted array.
+  
+- **Jump Search**:
+  - `jump_search.py`: Implements jump search, an algorithm that skips sections to find elements in a sorted array.
+  
+- **Linear Search**:
+  - `linear_search.py`: Implements the simplest form of searching, checking elements sequentially.
+  
+- **Ternary Search**:
+  - `ternary_search.py`: Implements ternary search, dividing the array into thirds for searching.
+
+---
+
+# Sorting Algorithms
+
+This section covers common sorting algorithms.
+
+- **Bubble Sort**:
+  - `bubble_sort.py`: Implements bubble sort, a simple comparison-based sorting algorithm.
+  
+- **Bucket Sort**:
+  - `bucket_sort.py`: Implements bucket sort, a distribution-based sorting algorithm.
+  
+- **Counting Sort**:
+  - `counting_sort.py`: Implements counting sort, a non-comparison sorting technique.
+  
+- **Insertion Sort**:
+  - `insertion_sort.py`: Implements insertion sort, which builds the sorted array one item at a time.
+  
+- **Merge Sort**:
+  - `merge_sort.py`: Implements merge sort, a divide-and-conquer sorting algorithm.
+  
+- **Quick Sort**:
+  - `quick_sort.py`: Implements quick sort, a highly efficient divide-and-conquer sorting algorithm.
+  
+- **Selection Sort**:
+  - `selection_sort.py`: Implements selection sort, a comparison-based algorithm that selects the smallest (or largest) element each time.
 ---
 
 ## How to Use
